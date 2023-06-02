@@ -171,8 +171,8 @@
                                 <DataGrid.Columns>
                                         <DataGridTextColumn IsReadOnly="True" Header="№" Binding="{Binding IdUser}"/>
                                         <DataGridTextColumn IsReadOnly="True" Header="Имя" Binding="{Binding Name}"/>
-                                        <DataGridTextColumn IsReadOnly="True" Header="Фамилия" Binding="{Binding Patronymic}"/>
-                                        <DataGridTextColumn IsReadOnly="True" Header="Отчество" Binding="{Binding Surename}"/>
+                                        <DataGridTextColumn IsReadOnly="True" Header="Фамилия" Binding="{Binding Surename}"/>
+                                        <DataGridTextColumn IsReadOnly="True" Header="Отчество" Binding="{Binding Patronymic}"/>
                                         <DataGridTextColumn IsReadOnly="True" Header="Часы" Binding="{Binding HoursWorked}"/>
                                         <DataGridTextColumn IsReadOnly="True" Header="Должность" Binding="{Binding Post}"/>
                                         <DataGridTemplateColumn>

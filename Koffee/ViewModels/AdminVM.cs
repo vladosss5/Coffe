@@ -67,9 +67,7 @@ public class AdminVM : ViewModelBase
     public ReactiveCommand<Window, Unit> AddEmployee { get; }
     public ReactiveCommand<Window, Unit> CreateReport { get; }
     public ReactiveCommand<Window, Unit> AddDish { get; }
-    // public ReactiveCommand<Window, Unit> DellEmployee { get; }
     
-
     public AdminVM()
     {
         AuthUserNow = AuthorizationVM.AuthUser;
@@ -93,7 +91,9 @@ public class AdminVM : ViewModelBase
                 int i = 0;
                 var allOrders = Order.ToList().OrderBy(p => p.Date).ToList();
                 var application = new Excel.Application();
-                string[] month = new string[12] { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Окрябрь", "Ноябрь", "Декабрь" };
+                string[] month = new string[12] { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", 
+                                                            "Август", "Сентябрь", "Окрябрь", "Ноябрь", "Декабрь" };
+                
                 application.SheetsInNewWorkbook = month.Length;
 
                 Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
@@ -138,8 +138,7 @@ public class AdminVM : ViewModelBase
 
                     worksheet.Cells[4][startRowIndex].Formula =
                         $"=SUM(D{startRowIndex - counter}:" + $"D{startRowIndex - 1}";
-                    // worksheet.Cells[5][startRowIndex].NumberFormat = worksheet.Cells[5][startRowIndex] = "#,###.00";
-                    
+
                     worksheet.Columns.AutoFit();
                     helper.Save();
                 }

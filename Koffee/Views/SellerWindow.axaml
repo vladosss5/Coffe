@@ -68,26 +68,26 @@
         Grid.RowSpan="3"
         CornerRadius="25"
         Margin="10, 5,10, 10">
-                <DataGrid Name="ListDishes"
-                          Items="{Binding Dish}"
-                          Margin="10">
-                        <DataGrid.Columns>
-                                <DataGridTextColumn IsReadOnly="True" Header="№" Binding="{Binding IdDish}"/>
-                                <DataGridTextColumn IsReadOnly="True" Header="Название" Binding="{Binding Name}"/>
-                                <DataGridTextColumn IsReadOnly="True" Header="Цена" Binding="{Binding Price}"/>
-                                <DataGridTextColumn Header="Кол-во" Binding="{Binding Count}"/>
-                                <DataGridTemplateColumn>
-                                        <DataGridTemplateColumn.CellTemplate>
-                                                <DataTemplate>
-                                                        <Button HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                                MinHeight="20" MinWidth="20" Background="#1e1038"
-                                                                Command="{Binding ElementName=ThisWindow, Path=AddDishPreorder }" 
-                                                                CommandParameter="{Binding }"/>
-                                                </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                </DataGrid>
+        <DataGrid Name="ListDishes"
+                  Items="{Binding Dish}"
+                  Margin="10">
+                <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Header="№" Binding="{Binding IdDish}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Название" Binding="{Binding Name}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Цена" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Кол-во" Binding="{Binding Count}"/>
+                        <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                                <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        MinHeight="20" MinWidth="20" Background="#1e1038"
+                                                        Command="{Binding ElementName=ThisWindow, Path=AddDishPreorder}" 
+                                                        CommandParameter="{Binding }"/>
+                                        </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                </DataGrid.Columns>
+        </DataGrid>
 </Border>
 
 <!-- _______________СПИСОК ПРЕДЗАКАЗА______________ -->

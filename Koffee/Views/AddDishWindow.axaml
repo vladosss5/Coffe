@@ -24,7 +24,7 @@
         <StackPanel>
             <TextBlock FontWeight="Bold" FontSize="24" Text="Добавить блюдо"/>
             
-            <TextBox Watermark="Имя"
+            <TextBox Watermark="Название"
                      Text="{Binding Name}"
                      Margin="0,15,0,5"/>
             

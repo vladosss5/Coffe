@@ -13,6 +13,7 @@
         <entry key="Koffee/Views/AuthorizationWindow.axaml" value="Koffee/Koffee.csproj" />
         <entry key="Koffee/Views/ChangePasswordWindow.axaml" value="Koffee/Koffee.csproj" />
         <entry key="Koffee/Views/ProfileWindow.axaml" value="Koffee/Koffee.csproj" />
+        <entry key="Koffee/Views/SellerView.axaml" value="Koffee/Koffee.csproj" />
         <entry key="Koffee/Views/SellerWindow.axaml" value="Koffee/Koffee.csproj" />
         <entry key="Koffee/Views/амм.axaml" value="Koffee/Koffee.csproj" />
       </map>

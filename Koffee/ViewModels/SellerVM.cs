@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Reactive;
-using Avalonia.Controls;
 using Koffee.Models;
 using Koffee.Views;
 using ReactiveUI;
@@ -10,6 +9,8 @@ using AvaloniaEdit.Utils;
 using MessageBox.Avalonia;
 using MessageBox.Avalonia.Enums;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Office.Interop.Word;
+using Window = Avalonia.Controls.Window;
 
 namespace Koffee.ViewModels;
 
@@ -97,18 +98,21 @@ public class SellerVM : ViewModelBase
 
     private void CreateOrder(Window obj)
     {
-            Order order = new Order();
-            order.Date = DateTime.Now;
-            order.IdUser = AuthUserNow.IdUser;
-            order.DishLists = _dishList.Select(x => new DishList() { IdDish = x.IdDish, Count = x.Count}).ToList();
-            order.Price = _dishList.Sum(x => x.Price);
-            Helper.GetContext().Orders.Add(order);
-            Helper.GetContext().Orders.UpdateRange();
-            Helper.GetContext().SaveChanges();
-            _dishList.Clear();
-            // SellerWindow homePage = new SellerWindow();
-            // homePage.Show();
-            // obj.Close();
+        var context = Helper.GetContext();
+        var dishes = context.Dishes
+            .Where(x => _dishList.Select(x => x.IdDish).Contains(x.IdDish))
+            .ToList();
+
+        Order order = new Order();
+        order.Date = DateTime.Now;
+        order.IdUser = AuthUserNow.IdUser;
+        order.DishLists = dishes.Select(x => new DishList { IdDishNavigation = x, Count = x.Count }).ToList();
+        order.Price = _dishList.Sum(x => x.Price);
+        Helper.GetContext().Orders.Add(order);
+        Helper.GetContext().Orders.UpdateRange();
+        Helper.GetContext().SaveChanges();
+        _order.Add(order);
+        _dishList.Clear();
     }
 
     private void DishChecking()
